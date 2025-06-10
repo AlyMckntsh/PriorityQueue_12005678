@@ -30,7 +30,16 @@ namespace PriorityQueue
         /// </summary>
         public void Add(T item, int priority)
         {
-            throw new NotImplementedException();
+            // Move tail forward
+            tailIndex++;
+            // Check for overflow
+            if (tailIndex >= capacity)
+            {
+                tailIndex--;
+                throw new QueueOverflowException();
+            }
+            // Insert without ordering
+            storage[tailIndex] = new PriorityItem<T>(item, priority);
         }
 
         /// <summary>
