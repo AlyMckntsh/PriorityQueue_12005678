@@ -69,7 +69,25 @@ namespace PriorityQueue
         /// </summary>
         public void Remove()
         {
-            throw new NotImplementedException();
+            if (IsEmpty())
+            {
+                throw new QueueUnderflowException();
+            }
+
+            // Find the index of the max‐priority element
+            int maxIndex = 0;
+            for (int i = 1; i <= tailIndex; i++)
+            {
+                if (storage[i].Priority > storage[maxIndex].Priority)
+                {
+                    maxIndex = i;
+                }
+            }
+
+            // Replace removed slot with the last element
+            storage[maxIndex] = storage[tailIndex];
+            // Shrink the queue
+            tailIndex--;
         }
 
         /// <summary>
