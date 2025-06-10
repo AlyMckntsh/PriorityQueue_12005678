@@ -27,12 +27,23 @@ namespace PriorityQueue
             {
                 InitSortedArrayQueue();
             }
+
+            if (CB_Implementation.SelectedIndex == 1)
+            {
+                InitUnsortedArrayQueue();
+            }
         }
         
         private void InitSortedArrayQueue()
         {
             queue = new SortedArrayPriorityQueue<Person>(8);
             Lbl_Output.Text = "New sorted array priority queue created";
+        }
+
+        private void InitUnsortedArrayQueue()
+        {
+            queue = new UnsortedArrayPriorityQueue<Person>(8);
+            Lbl_Output.Text = "New Unsorted array priority queue created";
         }
 
         private void Btn_AddQueue_Click(object sender, System.EventArgs e)

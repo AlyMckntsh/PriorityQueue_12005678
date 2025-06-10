@@ -41,11 +41,11 @@
             this.Panel_Output = new System.Windows.Forms.Panel();
             this.Lbl_Output = new System.Windows.Forms.Label();
             this.Panel_Add = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.Btn_AddQueue = new System.Windows.Forms.Button();
             this.Num_Priority = new System.Windows.Forms.NumericUpDown();
             this.Txt_Person = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.Panel_Actions.SuspendLayout();
             this.Panel_Output.SuspendLayout();
@@ -77,7 +77,8 @@
             this.CB_Implementation.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CB_Implementation.FormattingEnabled = true;
             this.CB_Implementation.Items.AddRange(new object[] {
-            "Sorted Array"});
+            "Sorted Array",
+            "Unsorted Array"});
             this.CB_Implementation.Location = new System.Drawing.Point(5, 45);
             this.CB_Implementation.Name = "CB_Implementation";
             this.CB_Implementation.Size = new System.Drawing.Size(162, 26);
@@ -190,6 +191,26 @@
             this.Panel_Add.Size = new System.Drawing.Size(444, 82);
             this.Panel_Add.TabIndex = 4;
             // 
+            // label5
+            // 
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(191, 5);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(166, 38);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "Priority";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label4
+            // 
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(6, 6);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(166, 38);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "Name";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // Btn_AddQueue
             // 
             this.Btn_AddQueue.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -216,26 +237,6 @@
             this.Txt_Person.Name = "Txt_Person";
             this.Txt_Person.Size = new System.Drawing.Size(179, 24);
             this.Txt_Person.TabIndex = 3;
-            // 
-            // label4
-            // 
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(6, 6);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(166, 38);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "Name";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // label5
-            // 
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(191, 5);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(166, 38);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "Priority";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // QueueManager
             // 
