@@ -47,7 +47,21 @@ namespace PriorityQueue
         /// </summary>
         public T Head()
         {
-            throw new NotImplementedException();
+            if (IsEmpty())
+            {
+                throw new QueueUnderflowException();
+            }
+
+            // Find the index of the max‐priority element
+            int maxIndex = 0;
+            for (int i = 1; i <= tailIndex; i++)
+            {
+                if (storage[i].Priority > storage[maxIndex].Priority)
+                {
+                    maxIndex = i;
+                }
+            }
+            return storage[maxIndex].Item;
         }
 
         /// <summary>
