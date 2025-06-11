@@ -42,6 +42,11 @@ namespace PriorityQueue
             {
                 InitSortedLinkedQueue();
             }
+
+            if (CB_Implementation.SelectedIndex == 4)
+            {
+                InitHeapQueue();
+            }
         }
         
         private void InitSortedArrayQueue()
@@ -67,7 +72,13 @@ namespace PriorityQueue
             queue = new SortedLinkedPriorityQueue<Person>(8);
             Lbl_Output.Text = "New Sorted Linked List priority queue created";
         }
-        
+
+        private void InitHeapQueue()
+        {
+            queue = new HeapPriorityQueue<Person>(8);
+            Lbl_Output.Text = "New Heap (Binary Max Heap) priority queue created";
+        }
+
         private void Btn_AddQueue_Click(object sender, System.EventArgs e)
         {
             if(string.IsNullOrWhiteSpace(Txt_Person.Text) == false)
