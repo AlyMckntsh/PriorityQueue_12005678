@@ -80,7 +80,12 @@ namespace PriorityQueue
         /// </summary>
         public T Head()
         {
-            throw new NotImplementedException();
+            if (IsEmpty())
+            {
+                throw new QueueUnderflowException();
+            }
+            // Head always holds the highest priority
+            return head.Data.Item;
         }
 
         /// <summary>
