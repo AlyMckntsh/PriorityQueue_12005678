@@ -92,5 +92,24 @@ namespace PriorityQueue.Tests
                 "Adding beyond capacity should throw overflow");
         }
 
+        [Test, TestCaseSource(nameof(GetQueues))]
+        public void Head_WhenQueueIsEmpty_ShouldThrowQueueUnderflowException(QueueWrapper wrapper)
+        {
+            var queue = wrapper.Queue;
+            // Act & Assert
+            Assert.Throws<QueueUnderflowException>(
+                () => queue.Head(),
+                "Peeking empty queue should throw underflow");
+        }
+
+        [Test, TestCaseSource(nameof(GetQueues))]
+        public void Remove_WhenQueueIsEmpty_ShouldThrowQueueUnderflowException(QueueWrapper wrapper)
+        {
+            var queue = wrapper.Queue;
+            // Act & Assert
+            Assert.Throws<QueueUnderflowException>(
+                () => queue.Remove(),
+                "Removing from empty queue should throw underflow");
+        }
     }
 }
