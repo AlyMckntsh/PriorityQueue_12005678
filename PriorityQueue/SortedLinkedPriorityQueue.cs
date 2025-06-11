@@ -93,7 +93,13 @@ namespace PriorityQueue
         /// </summary>
         public void Remove()
         {
-            throw new NotImplementedException();
+            if (IsEmpty())
+            {
+                throw new QueueUnderflowException();
+            }
+            // Advance head to drop the first node
+            head = head.Next;
+            count--;
         }
 
         /// <summary>
