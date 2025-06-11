@@ -76,7 +76,41 @@ namespace PriorityQueue
         /// </summary>
         public void Remove()
         {
-            throw new NotImplementedException();
+            if (IsEmpty())
+            {
+                throw new QueueUnderflowException();
+            }
+
+            // Move last element to root and shrink the heap
+            heap[0] = heap[lastIndex];
+            lastIndex--;
+
+            // Heapify down to restore max-heap property
+            int current = 0;
+            while (true)
+            {
+                int left = 2 * current + 1;
+                int right = 2 * current + 2;
+                int largest = current;
+
+                if (left <= lastIndex && heap[left].Priority > heap[largest].Priority)
+                {
+                    largest = left;
+                }
+                if (right <= lastIndex && heap[right].Priority > heap[largest].Priority)
+                {
+                    largest = right;
+                }
+                if (largest == current)
+                {
+                    break;
+                }
+                // Swap current with largest child
+                var temp = heap[current];
+                heap[current] = heap[largest];
+                heap[largest] = temp;
+                current = largest;
+            }
         }
 
         /// <summary>
