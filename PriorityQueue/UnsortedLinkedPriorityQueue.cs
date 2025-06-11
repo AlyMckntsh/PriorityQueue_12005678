@@ -132,7 +132,27 @@ namespace PriorityQueue
         /// </summary>
         public override string ToString()
         {
-            throw new NotImplementedException();
+            if (IsEmpty())
+            {
+                throw new QueueUnderflowException("No items to display");
+            }
+
+            // Build comma-separated list of PriorityItem<T>.ToString()
+            string result = "[";
+            Node current = head;
+            bool first = true;
+            while (current != null)
+            {
+                if (!first)
+                {
+                    result += ", ";
+                }
+                result += current.Data;
+                first = false;
+                current = current.Next;
+            }
+            result += "]";
+            return result;
         }
     }
 }
