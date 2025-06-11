@@ -76,5 +76,21 @@ namespace PriorityQueue.Tests
             Assert.That(queue.IsEmpty(), Is.True, "New queue should report empty");
         }
 
+        [Test, TestCaseSource(nameof(GetQueues))]
+        public void Add_WhenQueueIsFull_ShouldThrowQueueOverflowException(QueueWrapper wrapper)
+        {
+            var queue = wrapper.Queue;
+            // Arrange
+            for (int i = 0; i < Capacity; i++)
+            {
+                queue.Add(i, i);
+            }
+
+            // Act & Assert
+            Assert.Throws<QueueOverflowException>(
+                () => queue.Add(1, 1),
+                "Adding beyond capacity should throw overflow");
+        }
+
     }
 }
