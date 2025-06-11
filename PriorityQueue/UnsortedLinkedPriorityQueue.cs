@@ -45,7 +45,15 @@ namespace PriorityQueue
         /// </summary>
         public void Add(T item, int priority)
         {
-            throw new NotImplementedException();
+            // Check for overflow
+            if (count >= capacity)
+            {
+                throw new QueueOverflowException();
+            }
+
+            // Prepend new node (unsorted insertion)
+            head = new Node(new PriorityItem<T>(item, priority), head);
+            count++;
         }
 
         /// <summary>
