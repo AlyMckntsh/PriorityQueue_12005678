@@ -61,7 +61,24 @@ namespace PriorityQueue
         /// </summary>
         public T Head()
         {
-            throw new NotImplementedException();
+            if (IsEmpty())
+            {
+                throw new QueueUnderflowException();
+            }
+
+            // Traverse to find node with maximum priority
+            Node current = head;
+            Node maxNode = head;
+            while (current != null)
+            {
+                if (current.Data.Priority > maxNode.Data.Priority)
+                {
+                    maxNode = current;
+                }
+                current = current.Next;
+            }
+
+            return maxNode.Data.Item;
         }
 
         /// <summary>
