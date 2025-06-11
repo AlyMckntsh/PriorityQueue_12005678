@@ -45,7 +45,34 @@ namespace PriorityQueue
         /// </summary>
         public void Add(T item, int priority)
         {
-            throw new NotImplementedException();
+            // Enforce capacity limit
+            if (count >= capacity)
+            {
+                throw new QueueOverflowException();
+            }
+
+            // Create the new node
+            var newNode = new Node(new PriorityItem<T>(item, priority), null);
+
+            // Insert at head if empty or new priority higher than current head
+            if (head == null || priority > head.Data.Priority)
+            {
+                newNode.Next = head;
+                head = newNode;
+            }
+            else
+            {
+                // Walk to find insertion point (descending priority)
+                Node current = head;
+                while (current.Next != null && current.Next.Data.Priority >= priority)
+                {
+                    current = current.Next;
+                }
+                newNode.Next = current.Next;
+                current.Next = newNode;
+            }
+
+            count++;
         }
 
         /// <summary>
