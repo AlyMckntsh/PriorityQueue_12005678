@@ -63,7 +63,12 @@ namespace PriorityQueue
         /// </summary>
         public T Head()
         {
-            throw new NotImplementedException();
+            if (IsEmpty())
+            {
+                throw new QueueUnderflowException();
+            }
+            // Root of the heap always holds the max-priority item
+            return heap[0].Item;
         }
 
         /// <summary>
