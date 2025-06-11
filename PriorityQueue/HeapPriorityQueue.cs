@@ -30,7 +30,32 @@ namespace PriorityQueue
         /// </summary>
         public void Add(T item, int priority)
         {
-            throw new NotImplementedException();
+            // Advance lastIndex and check for overflow
+            lastIndex++;
+            if (lastIndex >= capacity)
+            {
+                lastIndex--;
+                throw new QueueOverflowException();
+            }
+
+            // Insert new element at the end
+            heap[lastIndex] = new PriorityItem<T>(item, priority);
+
+            // Bubble up to maintain max-heap property
+            int current = lastIndex;
+            while (current > 0)
+            {
+                int parent = (current - 1) / 2;
+                if (heap[current].Priority <= heap[parent].Priority)
+                {
+                    break;
+                }
+                // Swap current with parent
+                var temp = heap[current];
+                heap[current] = heap[parent];
+                heap[parent] = temp;
+                current = parent;
+            }
         }
 
         /// <summary>
