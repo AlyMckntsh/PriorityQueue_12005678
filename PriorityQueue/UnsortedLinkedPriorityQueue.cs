@@ -86,7 +86,40 @@ namespace PriorityQueue
         /// </summary>
         public void Remove()
         {
-            throw new NotImplementedException();
+            if (IsEmpty())
+            {
+                throw new QueueUnderflowException();
+            }
+
+            // Find max-priority node and its predecessor
+            Node current = head;
+            Node maxNode = head;
+            Node prevToMax = null;
+            Node prev = null;
+
+            while (current != null)
+            {
+                if (current.Data.Priority > maxNode.Data.Priority)
+                {
+                    maxNode = current;
+                    prevToMax = prev;
+                }
+                prev = current;
+                current = current.Next;
+            }
+
+            // Remove maxNode from list
+            if (prevToMax == null)
+            {
+                // maxNode is head
+                head = head.Next;
+            }
+            else
+            {
+                prevToMax.Next = maxNode.Next;
+            }
+
+            count--;
         }
 
         /// <summary>
