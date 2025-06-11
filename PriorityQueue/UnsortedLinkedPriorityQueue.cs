@@ -75,10 +75,7 @@ namespace PriorityQueue
         /// <summary>
         /// Determines whether the queue is empty.
         /// </summary>
-        public bool IsEmpty()
-        {
-            throw new NotImplementedException();
-        }
+        public bool IsEmpty() => count == 0;
 
         /// <summary>
         /// Returns a string representation of the queue contents.
