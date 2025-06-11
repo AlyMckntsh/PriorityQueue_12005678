@@ -68,5 +68,13 @@ namespace PriorityQueue.Tests
             Assert.That(queue.IsEmpty(), Is.True, "Queue should be empty after removing the only item");
         }
 
+        [Test, TestCaseSource(nameof(GetQueues))]
+        public void IsEmpty_WhenNewQueue_ShouldReturnTrue(QueueWrapper wrapper)
+        {
+            var queue = wrapper.Queue;
+            // Act & Assert
+            Assert.That(queue.IsEmpty(), Is.True, "New queue should report empty");
+        }
+
     }
 }
